@@ -1,0 +1,19 @@
+.card__icon {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent url(../../../images/like_disabled.svg) center no-repeat;
+    background-size: cover;
+    min-width: 22px;
+    height: 19px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+/* .card__icon:focus{
+    background: url(../../../../images/like_active.svg);
+} */
+
+.card__icon:hover {
+    opacity: .5;
+}
