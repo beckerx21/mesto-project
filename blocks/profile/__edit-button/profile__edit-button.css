@@ -3,7 +3,7 @@
     padding: 0;
     border: none;
     background: transparent url(../../../images/edit_Button.svg) center no-repeat;
-    background-size: contain;
+    background-size: 100%;
     width: 24px;
     height: 24px;
     cursor: pointer;

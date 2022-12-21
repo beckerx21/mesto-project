@@ -1,11 +1,14 @@
 .page {
     margin: 0 auto;
+    height: 100%;
     max-width: 880px;
     background-color: #000;
     font-family: 'Inter', 'Helvetica', sans-serif;
     color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 1024px) and (min-width: 445px) {

@@ -3,5 +3,12 @@
     max-width: 880px;
     padding-top: 45px;
     min-height: 74px;
-    border-bottom: 1px solid #545454;
+    border-bottom: 1px solid rgba(84, 84, 84, .7)
+}
+
+@media screen and (max-width: 520px) {
+  .header {
+    min-height: 56px;
+    padding-top: 28px;
+  }
 }

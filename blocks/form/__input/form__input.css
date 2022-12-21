@@ -11,6 +11,10 @@
     min-height: 27px;
 }
 
+.form__input:first-child {
+  margin-bottom: 30px;
+}
+
 @media screen and (max-width: 520px) {
   .form__input {
     max-width: 238px;
