@@ -31,7 +31,7 @@
       <button class="profile__add-button" type="button" aria-label="Добавить фотографию"></button>
     </section>
     <section class="cards">
-      <article class="card">
+      <!-- <article class="card">
         <img class="card__image" src="./images/karacaevsk.jpg" alt="Карачаевск">
         <div class="card__info">
           <h2 class="card__title">Карачаевск</h2>
@@ -72,7 +72,7 @@
           <h2 class="card__title">Карачаево-Ч..</h2>
           <button class="card__icon" type="button" aria-label="Нравится"></button>
         </div>
-      </article>
+      </article> -->
     </section>
   </main>
   <footer class="footer">
@@ -80,9 +80,9 @@
   </footer>
   <div class="popup">
     <div class="popup__container">
-      <button class="popup__close" type="button" aria-label="Закрыть"></button>
+      <button class="popup__close" id="buttonProfileClose" type="button" aria-label="Закрыть"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form class="popup__form form" action="#" name="edit-form" novalidate>
+      <form class="popup__form form" id="popupProfileEdit" action="#" name="edit-form" novalidate>
         <fieldset class="form__fieldset">
           <input class="form__input" type="text" name="username" id="name" placeholder="Имя" minlength="3"
             maxlength="30" required>
@@ -93,6 +93,31 @@
       </form>
     </div>
   </div>
+  <div class="popup popup__add-place">
+    <div class="popup__container">
+      <button class="popup__close" id="buttonPlaceClose" type="button" aria-label="Закрыть"></button>
+      <h3 class="popup__title">Новое место</h3>
+      <form class="popup__form form" id="popupPlaceAdd"  action="#" name="edit-form" novalidate>
+        <fieldset class="form__fieldset">
+          <input class="form__input" type="text" name="username" id="placeTitle" placeholder="Название" minlength="3"
+            maxlength="30" required>
+          <input class="form__input" type="text" name="userjob" id="placeLink" placeholder="Ссылка на картинку" minlength="3"
+            maxlength="100" required>
+        </fieldset>
+        <button class="form__submit" id="placeSubmit" type="submit" aria-label="Сохранить">Создать</button>
+      </form>
+    </div>
+  </div>
+  <template id="card-template">
+    <article class="card">
+      <img class="card__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+      <div class="card__info">
+        <h2 class="card__title">Гора Эльбрус</h2>
+        <button class="card__icon" type="button" aria-label="Нравится" onclick="setLike(this)"></button>
+      </div>
+    </article>
+  </template>
+  <script src="scripts/script.js"></script>
 </body>
 
 </html>
