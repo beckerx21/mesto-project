@@ -11,7 +11,6 @@ const profileJob = document.querySelector('.profile__subtitle');
 const nameField = document.getElementById('name');
 const jobField = document.getElementById('job');
 
-
 // Реализуем открытие поп-ап, присваиваем полям значения, отображенные на странице
 function popupOpen() {
   popup.classList.add('popup_opened');
