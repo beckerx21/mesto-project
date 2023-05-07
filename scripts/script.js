@@ -32,7 +32,7 @@ popupCloseButton.addEventListener('click', popupClose);
 // Находим форму редактирования профиля
 const formElement = document.querySelector('#popupProfileEdit');
 
-// Обработчик отправки формы
+// Обработчик отправки формыыыыыыыы
 function formSubmitHandler(evt) {
   evt.preventDefault();
   profileName.textContent = nameField.value;
@@ -101,7 +101,10 @@ function cardCreate(name,link) {
   cardImage.src = `${link}`;
   cardImage.alt = `${name}`;
   cards.prepend(cardElement);
+
 }
+
+
 
 initialCards.forEach(element => {
   cardCreate(element.name, element.link);
