@@ -32,7 +32,7 @@ popupCloseButton.addEventListener('click', popupClose);
 // Находим форму редактирования профиля
 const formElement = document.querySelector('#popupProfileEdit');
 
-// Обработчик отправки формыыыыыыыы
+// Обработчик отправки формы
 function formSubmitHandler(evt) {
   evt.preventDefault();
   profileName.textContent = nameField.value;
