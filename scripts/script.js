@@ -89,6 +89,19 @@ function popupPlaceClose() {
 const placeCloseButton = document.getElementById('buttonPlaceClose');
 placeCloseButton.addEventListener('click', popupPlaceClose);
 
+// Создаем переменные для реализация увеличения фото
+const photoZoom = document.querySelector('.popup__photo');
+const photoZoomAlt = document.querySelector('.popup__photo-title');
+const popupPhotoAdd = document.querySelector('.popup__photoAdd')
+const photoZoomClose = document.querySelector('#buttonPhotoClose');
+
+// Закрытие увеличенного фото
+function popupPhotoClose() {
+  popupPhotoAdd.classList.remove('popup_opened');
+}
+
+photoZoomClose.addEventListener('click', popupPhotoClose);
+
 // Функция создания карточек
 const cards = document.querySelector('.cards');
 
@@ -109,6 +122,16 @@ function cardCreate(name,link) {
   // Реализация удаления карточек
   cardElement.querySelector('.card__trash').addEventListener('click', function(evt) {
     evt.target.closest('.card').remove();
+  })
+
+  cardElement.querySelector('.card__image').addEventListener('click', function(evt) {
+    const imageLink = evt.target.getAttribute('src');
+    const imageTitle = evt.target.alt;
+    const imageAlt = evt.target.getAttribute('alt');
+    photoZoom.setAttribute('src', imageLink);
+    photoZoomAlt.setAttribute('alt', imageAlt);
+    photoZoomAlt.textContent = imageTitle;
+    popupPhotoAdd.classList.add('popup_opened');
   })
 
   return cardElement;
