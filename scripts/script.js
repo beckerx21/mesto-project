@@ -89,7 +89,7 @@ function popupPlaceClose() {
 const placeCloseButton = document.getElementById('buttonPlaceClose');
 placeCloseButton.addEventListener('click', popupPlaceClose);
 
-// Добавление карточки на страницу
+// Функция создания карточек
 const cards = document.querySelector('.cards');
 
 function cardCreate(name,link) {
@@ -100,43 +100,39 @@ function cardCreate(name,link) {
   cardTitle.textContent = `${name}`;
   cardImage.src = `${link}`;
   cardImage.alt = `${name}`;
-  cards.prepend(cardElement);
+
+  // Реализация лайка
+  cardElement.querySelector('.card__icon').addEventListener('click', function(event) {
+    event.target.classList.toggle('card__icon_active');
+  })
+
+  // Реализация удаления карточек
+  cardElement.querySelector('.card__trash').addEventListener('click', function(evt) {
+    evt.target.closest('.card').remove();
+  })
+
+  return cardElement;
 
 }
 
-
-
+// Добавление первых 6 карточек на страницу
 initialCards.forEach(element => {
-  cardCreate(element.name, element.link);
+  cards.append(cardCreate(element.name, element.link));
 })
 
-
-// Находим форму добавления карточки
-const formPlace = document.getElementById('popupPlaceAdd');
-
-// Обработчик отправки формы
+// Функция добавления карточек
 function formPlaceSubmit(event) {
   event.preventDefault();
   const placeTitle = document.getElementById('placeTitle');
   const placeLink = document.getElementById('placeLink');
-  cardCreate(placeTitle.value, placeLink.value);
+  cards.prepend(cardCreate(placeTitle.value, placeLink.value));
   popupPlaceClose();
 }
 
-// Отправка формы
-const placeSubmit = document.getElementById('placeSubmit');
-popupPlaceAdd.addEventListener('submit', formPlaceSubmit);
+// Обработка формы добавления карточки
+const formPlace = document.querySelector('#popupPlaceAdd');
+formPlace.addEventListener('submit', formPlaceSubmit);
 
-// Лайк карточки
-// const buttonLike = document.querySelectorAll('.card__icon');
 
-// buttonLike.forEach(function (btn) {
-//   btn.addEventListener('click', function(evt) {
-//     const evtTarget = evt.target;
-//     evtTarget.classList.toggle('card__icon_active');
-//   })
-// })
 
-function setLike(event) {
-  event.classList.toggle('card__icon_active');
-}
+

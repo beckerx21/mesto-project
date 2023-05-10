@@ -76,7 +76,7 @@
     </section>
   </main>
   <footer class="footer">
-    <p class="footer__copyright">© 2020 Mesto Russia</p>
+    <p class="footer__copyright">© 2023 Mesto Russia</p>
   </footer>
   <div class="popup">
     <div class="popup__container">
@@ -110,10 +110,11 @@
   </div>
   <template id="card-template">
     <article class="card">
+      <button class="card__trash" type="button"></button>
       <img class="card__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
       <div class="card__info">
         <h2 class="card__title">Гора Эльбрус</h2>
-        <button class="card__icon" type="button" aria-label="Нравится" onclick="setLike(this)"></button>
+        <button class="card__icon" type="button" aria-label="Нравится"></button>
       </div>
     </article>
   </template>
