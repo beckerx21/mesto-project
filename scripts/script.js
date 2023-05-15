@@ -28,17 +28,17 @@ const photoZoomAlt = document.querySelector('.popup__photo-title');
 const photoCloseButton = document.querySelector('#buttonPhotoClose');
 
 // Универсальные функции открытия и закрытия popup
-function popupOpen(popup) {
+function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
-function popupClose(popup) {
+function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
 // Реализуем открытие поп-ап профиля, присваиваем полям значения, отображенные на странице
 function openProfilePopup() {
-  popupOpen(profilePopup);
+  openPopup(profilePopup);
   nameField.value = profileName.textContent;
   jobField.value = profileJob.textContent;
 }
@@ -48,7 +48,7 @@ profileOpenButton.addEventListener('click', openProfilePopup);
 
 // Добавляем событие на кнопку для закрытия формы
 profileCloseButton.addEventListener('click', () => {
-  popupClose(profilePopup);
+  closePopup(profilePopup);
 });
 
 // Обработчик отправки формы
@@ -56,7 +56,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameField.value;
   profileJob.textContent = jobField.value;
-  popupClose(profilePopup);
+  closePopup(profilePopup);
 }
 
 // Отправка формы
@@ -92,16 +92,16 @@ const initialCards = [
 
 // Открытие и закрытие popup добавления карточки
 placeAddButton.addEventListener('click', () => {
-  popupOpen(popupAddPlace);
+  openPopup(popupAddPlace);
 });
 
 placeCloseButton.addEventListener('click', () => {
-  popupClose(popupAddPlace);
+  closePopup(popupAddPlace);
 });
 
 // Закрытие попапа с картинкой
 photoCloseButton.addEventListener('click', () => {
-  popupClose(popupPhotoZoom);
+  closePopup(popupPhotoZoom);
 });
 
 // Функция создания карточек
@@ -124,14 +124,11 @@ function createCard(name, link) {
     evt.target.closest('.card').remove();
   })
 
-  cardElement.querySelector('.card__image').addEventListener('click', function (evt) {
-    const imageLink = evt.target.getAttribute('src');
-    const imageTitle = evt.target.alt;
-    const imageAlt = evt.target.getAttribute('alt');
-    photoZoom.setAttribute('src', imageLink);
-    photoZoomAlt.setAttribute('alt', imageAlt);
-    photoZoomAlt.textContent = imageTitle;
-    popupPhotoZoom.classList.add('popup_opened');
+  cardImage.addEventListener('click', () => {
+    photoZoom.setAttribute('src', link);
+    photoZoomAlt.setAttribute('alt', name);
+    photoZoomAlt.textContent = name;
+    openPopup(popupPhotoZoom);
   })
 
   return cardElement;
@@ -146,7 +143,7 @@ initialCards.forEach(element => {
 function handleCardFormSubmit(event) {
   event.preventDefault();
   cards.prepend(createCard(placeTitle.value, placeLink.value));
-  popupClose(popupAddPlace);
+  closePopup(popupAddPlace);
   event.target.reset();
 }
 
